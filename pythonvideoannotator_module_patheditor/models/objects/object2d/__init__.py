@@ -1,0 +1,1 @@
+from pythonvideoannotator_module_patheditor.models.objects.object2d.patheditor_object2d import PathEditorObject2d as Object2d
