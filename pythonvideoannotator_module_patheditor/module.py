@@ -24,7 +24,7 @@ class Module(object):
 	
 		self.mainmenu.insert(2,
 			{'Windows': [
-				{'Objects': self.__show_objects_list_evt }
+				{'Objects': self.__show_objects_list_evt, 'icon':conf.ANNOTATOR_ICON_OBJECT }
 			]}
 		)
 
@@ -33,7 +33,7 @@ class Module(object):
 		self._right_details.show()
 
 	def onPlayerClick(self, event, x, y): 
-		self._objects_window.on_click(event, x, y)
+		self._objects_window.player_on_click(event, x, y)
 
 
 	def process_frame(self, frame):
