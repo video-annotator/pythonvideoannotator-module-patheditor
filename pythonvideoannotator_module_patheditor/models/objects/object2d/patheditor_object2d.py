@@ -35,16 +35,6 @@ class PathEditorObject2d(object):
 		
 		
 
-	def create_motion_tree_nodes(self):
-		
-		self.treenode_motion = self.tree.create_child('Motion', icon=conf.ANNOTATOR_ICON_PATH, parent=self.treenode )
-		variation_treenode 	 = self.tree.create_child('x', icon=conf.ANNOTATOR_ICON_X, parent=self.treenode_motion )
-		self.tree.add_popup_menu_option(label='View on the timeline', function_action=self.__send_motion_to_timeline_event, item=variation_treenode, icon=conf.ANNOTATOR_ICON_TIMELINE)
-		self.tree.add_popup_menu_option(label='View on the timeline', function_action=self.__send_motion_variation_to_timeline_event, item=variation_treenode, icon=conf.ANNOTATOR_ICON_TIMELINE)
-		
-		self.treenode_motion.obj = variation_treenode.obj = self
-
-
 	######################################################################
 	### PROPERTIES #######################################################
 	######################################################################

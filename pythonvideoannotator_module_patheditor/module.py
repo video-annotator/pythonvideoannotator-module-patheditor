@@ -5,6 +5,8 @@ from pyforms.Controls 						import ControlDockWidget
 from pythonvideoannotator.utils.tools 		import list_folders_in_path
 from pythonvideoannotator_models_gui.models import Project
 from pythonvideoannotator_models_gui.dialogs.paths_selector import PathsSelectorDialog
+from pythonvideoannotator_models_gui.dialogs.videos_selector import VideosSelectorDialog
+from pythonvideoannotator_models_gui.dialogs.images_selector import ImagesSelectorDialog
 
 class Module(object):
 
@@ -46,8 +48,13 @@ class Module(object):
 
 	def added_video_event(self, obj):
 		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog += obj
+		for dialog in VideosSelectorDialog.instantiated_dialogs: dialog += obj
+		for dialog in ImagesSelectorDialog.instantiated_dialogs: dialog += obj
+
 	def removed_video_event(self, obj):
 		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog -= obj
+		for dialog in VideosSelectorDialog.instantiated_dialogs: dialog -= obj
+		for dialog in ImagesSelectorDialog.instantiated_dialogs: dialog -= obj
 
 	def added_object_event(self, obj):
 		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog += obj
@@ -58,6 +65,11 @@ class Module(object):
 		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog += obj
 	def removed_dataset_event(self, obj):
 		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog -= obj
+
+	def added_image_event(self, obj):
+		for dialog in ImagesSelectorDialog.instantiated_dialogs: dialog += obj
+	def removed_image_event(self, obj):
+		for dialog in ImagesSelectorDialog.instantiated_dialogs: dialog -= obj
 	
 
 	def add_graph(self, name, data):  	 self._time.add_graph(name, data)
