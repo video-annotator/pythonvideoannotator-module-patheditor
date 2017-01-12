@@ -4,9 +4,7 @@ from PyQt4 import QtCore, QtGui
 from pyforms.Controls 						import ControlDockWidget
 from pythonvideoannotator.utils.tools 		import list_folders_in_path
 from pythonvideoannotator_models_gui.models import Project
-from pythonvideoannotator_models_gui.dialogs.paths_selector import PathsSelectorDialog
-from pythonvideoannotator_models_gui.dialogs.videos_selector import VideosSelectorDialog
-from pythonvideoannotator_models_gui.dialogs.images_selector import ImagesSelectorDialog
+from pythonvideoannotator_models_gui.dialogs import Dialog
 
 class Module(object):
 
@@ -23,13 +21,8 @@ class Module(object):
 		#self._right_docker.hide()
 		#self._right_details.hide()
 
-	
-		self.mainmenu.insert(2,
-			{'Windows': [
-				{'Videos': self.__show_objects_list_event, 'icon':conf.ANNOTATOR_ICON_OBJECT }
-			]}
-		)
-
+		self.mainmenu[2]['Windows'].append({'Videos': self.__show_objects_list_event, 'icon':conf.ANNOTATOR_ICON_MOVIES })
+		
 	def __show_objects_list_event(self):
 		self._right_docker.show()
 		self._right_details.show()
@@ -46,33 +39,7 @@ class Module(object):
 			self._project.draw(frame, self._player.video_index)
 		return frame
 
-	def added_video_event(self, obj):
-		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog += obj
-		for dialog in VideosSelectorDialog.instantiated_dialogs: dialog += obj
-		for dialog in ImagesSelectorDialog.instantiated_dialogs: dialog += obj
-
-	def removed_video_event(self, obj):
-		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog -= obj
-		for dialog in VideosSelectorDialog.instantiated_dialogs: dialog -= obj
-		for dialog in ImagesSelectorDialog.instantiated_dialogs: dialog -= obj
-
-	def added_object_event(self, obj):
-		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog += obj
-	def removed_object_event(self, obj):
-		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog -= obj
-
-	def added_dataset_event(self, obj):
-		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog += obj
-	def removed_dataset_event(self, obj):
-		for dialog in PathsSelectorDialog.instantiated_dialogs: dialog -= obj
-
-	def added_image_event(self, obj):
-		for dialog in ImagesSelectorDialog.instantiated_dialogs: dialog += obj
-	def removed_image_event(self, obj):
-		for dialog in ImagesSelectorDialog.instantiated_dialogs: dialog -= obj
-	
-
-	def add_graph(self, name, data):  	 self._time.add_graph(name, data)
+	def add_graph(self, name, data):  	 	self._time.add_graph(name, data)
 
 
 
@@ -94,7 +61,7 @@ class Module(object):
 	
 
 	def save_project(self, project_path=None):
-		super(Module, self).save_project(self._project.path if project_path is None else project_path)
+		super(Module, self).save_project(self._project.directory if project_path is None else project_path)
 
 
 
