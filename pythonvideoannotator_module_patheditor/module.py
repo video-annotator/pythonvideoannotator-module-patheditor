@@ -1,6 +1,5 @@
 import cv2, os
 from pysettings import conf
-from PyQt4 import QtCore, QtGui
 from pyforms.Controls 						import ControlDockWidget
 from pythonvideoannotator.utils.tools 		import list_folders_in_path
 from pythonvideoannotator_models_gui.models import Project
@@ -20,7 +19,7 @@ class Module(object):
 		self._right_docker.value    = self._project
 		#self._right_docker.hide()
 		#self._right_details.hide()
-
+		
 		self.mainmenu[2]['Windows'].append({'Videos': self.__show_objects_list_event, 'icon':conf.ANNOTATOR_ICON_MOVIES })
 		
 	def __show_objects_list_event(self):
