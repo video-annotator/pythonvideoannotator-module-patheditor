@@ -59,10 +59,6 @@ class Module(object):
 		self._project.load(data, project_path)
 	
 
-	def save_project(self, project_path=None):
-		super(Module, self).save_project(self._project.directory if project_path is None else project_path)
-
-
 
 	######################################################################################
 	#### PROPERTIES ######################################################################
