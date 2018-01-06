@@ -48,15 +48,7 @@ class Module(object):
 	######################################################################################
 
 	
-	def save(self, data, project_path=None):
-		data = super(Module, self).save(data, project_path)
-		self._project.save(data, project_path)
-		return data
-
-
-	def load(self, data, project_path=None):
-		super(Module, self).load(data, project_path)
-		self._project.load(data, project_path)
+	
 	
 
 
