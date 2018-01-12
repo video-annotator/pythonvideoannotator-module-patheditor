@@ -35,7 +35,7 @@ class Module(object):
 		Function called before render each frame
 		"""
 		if self._player.video_index is not None: 
-			self._project.draw(frame, self._player.video_index-1)
+			self._project.draw(frame, self._player.video_index)
 		return frame
 
 	def add_graph(self, name, data):  	 	self._time.add_graph(name, data)
