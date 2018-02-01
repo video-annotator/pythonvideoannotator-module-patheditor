@@ -1,9 +1,9 @@
 import csv, cv2, os
 from pysettings import conf
 from pyforms import BaseWidget
-from pyforms.Controls import ControlButton
-from pyforms.Controls import ControlCombo
-from pyforms.Controls import ControlLabel
+from pyforms.controls import ControlButton
+from pyforms.controls import ControlCombo
+from pyforms.controls import ControlLabel
 
 
 class PathEditorObject2d(object):

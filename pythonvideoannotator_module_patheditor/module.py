@@ -1,6 +1,6 @@
 import cv2, os
 from pysettings import conf
-from pyforms.Controls 						import ControlDockWidget
+from pyforms.controls 						import ControlDockWidget
 from pythonvideoannotator.utils.tools 		import list_folders_in_path
 from pythonvideoannotator_models_gui.models import Project
 from pythonvideoannotator_models_gui.dialogs import Dialog
