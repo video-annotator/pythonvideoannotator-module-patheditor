@@ -1,1 +1,0 @@
-from .patheditor_object2d import PathEditorObject2d as Object2d
