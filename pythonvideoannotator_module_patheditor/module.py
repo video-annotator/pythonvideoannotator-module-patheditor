@@ -26,8 +26,7 @@ class Module(object):
 		self._right_docker.show()
 		self._right_details.show()
 
-	def on_player_click_event(self, event, x, y): 
-		self._project.player_on_click(event, x, y)
+
 
 
 	def process_frame_event(self, frame):
