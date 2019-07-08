@@ -35,7 +35,7 @@ class Module(object):
 		"""
 		if self._player.video_index is not None:
 			self._project.draw(frame, self._player.video_index-1)
-		return frame
+		return super().process_frame_event(frame)
 
 	def add_graph(self, name, data):  	 	self._time.add_graph(name, data)
 
